@@ -16,10 +16,10 @@ csv_rows = []
 
 for dirname, dirnames, filenames in os.walk(args.directory):
 
-    for dirname in dirnames:
+    for dir in dirnames:
         #ignore hidden stuff
-        if dirname[0] == '.':
-            dirnames.remove(dirname)
+        if dir[0] == '.':
+            dirnames.remove(dir)
 
     # print path to all filenames.
     for filename in filenames:
@@ -32,7 +32,7 @@ for dirname, dirnames, filenames in os.walk(args.directory):
             pass
     #     print(os.path.join(dirname, filename))
 
-
+#TODO: make output file an option
 with open('dirlisting.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     if args.titles:
